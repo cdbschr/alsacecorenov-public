@@ -1,0 +1,113 @@
+@use '../utils/mixins' as m;
+
+#index__realisations article {
+  width: 90%;
+  margin: 0 1em;
+
+  @include m.mq('tablet-up') {
+    width: 45%;
+  }
+}
+
+// ------
+// Changement image slider
+// ------
+
+// Slider 1
+.slider--1 .slider__before {
+  background-image:url('../../public/img/beforeafter/1-renovationavant.jpg');
+}
+
+.slider--1 .slider__after {
+  background-image:url('../../public/img/beforeafter/2-renovationafter.jpg');
+}
+
+// Slider 2
+.slider--2 .slider__before {
+  background-image:url('../../public/img/beforeafter/1-pavageavant.jpg');
+}
+
+.slider--2 .slider__after {
+  background-image:url('../../public/img/beforeafter/2-pavageafter.jpg');
+}
+
+// ------
+// Sliders globals
+.slider {
+  position:relative;
+  height:0px;
+  padding-bottom:66.666666667%;
+  margin-top:24px;
+  margin-bottom:24px;
+}
+
+.slider__before {
+  position:absolute;
+  top:0px;
+  left:0px;
+  z-index:2;
+  width:50%;
+  height:100%;
+  background-size:cover;
+  pointer-events: none;
+  overflow:hidden;
+
+  &:before {
+    content:'Avant';
+    left:8px;
+  }
+}
+
+.slider__after {
+  position:absolute;
+  top:0px;
+  left:0px;
+  z-index:1;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  pointer-events: none;
+
+  &:before {
+    content:'Après';
+    right:8px;
+  }
+}
+
+.slider__before::before, .slider__after::before {
+  position:absolute;
+  top:50%;
+  margin:0 8px;
+  padding: 3px 8px;
+  background-color: rgba(39, 39, 39, 0.493);
+  border-radius: 3px;
+  color: white;
+  font-size: 1.2em;
+  transform:translateY(-50%);
+  text-transform: uppercase;
+}
+
+.slider__separator {
+  position:absolute;
+  left:50%;
+  width:2px;
+  top:0px;
+  bottom:0px;
+  background:rgba(255,255,255,0.7);
+  box-shadow: 0 5px 10px 0px rgba(0,0,0,0.5);
+  cursor:ew-resize;
+  z-index:3;
+  transform:translateX(-50%);
+
+  &::before {
+    content:'';
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:solid 2px white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+  }
+}

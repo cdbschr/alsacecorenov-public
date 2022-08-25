@@ -1,0 +1,30 @@
+@import 'variables';
+
+// --- MEDIA QUERIES ---
+
+@mixin mq($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  }
+  @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// --- FLEX ---
+
+@mixin flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-container-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+

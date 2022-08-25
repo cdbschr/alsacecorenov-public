@@ -1,0 +1,43 @@
+RewriteEngine On
+
+# Change url
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?action=$1
+
+# Force https
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+#Redirige vers la page 404
+ErrorDocument 404 /app/views/errors/404.php
+
+# ne pas avoir accès aux dossiers
+Options All -Indexes
+
+# Activation du suivi des liens symboliques
+Options +FollowSymLinks
+
+# Masquer les informations du serveur
+ServerSignature Off
+
+# Protection contre les injections de fichiers
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC]
+RewriteRule .* - [F]
+
+# Protections diverses (XSS, clickjacking et MIME-Type sniffing)
+<ifModule mod_headers.c>
+Header set X-XSS-Protection "1; mode=block"
+Header always append X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options: "nosniff”
+</ifModule>
+
+# Protection du htaccess
+<files .htaccess>
+order allow,deny
+deny from all
+</files>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: https://alsacecorenov.com/?action=mentionslegales
+Disallow: https://alsacecorenov.com/?action=rgpd
+Disallow: https://alsacecorenov.com/404
+Disallow: https://alsacecorenov.com/oups

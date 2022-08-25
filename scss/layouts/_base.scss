@@ -1,0 +1,48 @@
+@use '../utils/mixins' as m;
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  @include m.flex-container-center;
+
+  & h1, h2 {
+    width: 100%;
+  }
+
+  & article, article h3 {
+    width: 100%;
+  }
+}
+
+body {
+  background-color: var(--background);
+}
+
+main {
+  padding: 2rem 0;
+}
+
+h1 {
+  span:first-child {
+    color: var(--color-primary);
+  }
+
+  span:last-child {
+    color: var(--color-secondary);
+  }
+}
+
+h1 ~ h2 {
+  margin-top: -0.5rem;
+}
+
+h2 {
+  margin: 2rem 0;
+}
+
+/* Buttons */
+@import '../components/buttons';
+/* Sliders */
+@import '../components/beforeafter';
+/* Forms */
+@import 'forms';

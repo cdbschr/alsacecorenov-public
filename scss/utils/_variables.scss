@@ -1,0 +1,23 @@
+$breakpoints: (
+  "tablet-down": 576px,
+  "tablet-up": 768px,
+  "desktop-up": 947px,
+  "widescreen-up": 1440px
+);
+
+$z-indexes: (
+  "modal",
+  "sidebar",
+  "header"
+);
+
+// Setting the font for the entire site.
+$font: "Roboto", sans-serif;
+$fontTitle: "Roboto Condensed", sans-serif;
+
+// Setting the font size for the different breakpoints.
+$font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+$font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+$font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+$font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+$font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);

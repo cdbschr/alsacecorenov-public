@@ -1,0 +1,61 @@
+@use '../utils/mixins' as m;
+
+header {
+  background-color: var(--background-header);
+}
+
+header .container {
+  width: 100%;
+  display: flex;
+  padding: 15px 10px;
+  justify-content: center;
+  align-items: center;
+  
+  @include m.mq('tablet-up') {
+    padding: 15px 3px;
+    justify-content: space-between;
+  }
+}
+
+#logo__mobiletablet {
+  display: block;
+
+  & img {
+    width: 5em;
+    height: auto;
+  }
+  
+  @include m.mq('tablet-up') {
+    display: none;
+  }
+}
+
+#logo__desktop {
+  display: none;
+
+  @include m.mq('tablet-up') {
+    display: block;
+    width: 15em;
+    height: auto;
+  }
+}
+
+nav {
+  display: none;
+
+  @media (min-width: 884px) {
+    display: block;
+    width: 70%;
+  }
+}
+
+nav ul {
+  display: flex;
+  justify-content: end;
+
+  & li {
+    margin-left: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}

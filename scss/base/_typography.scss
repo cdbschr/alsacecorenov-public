@@ -1,0 +1,31 @@
+@import '../utils/variables';
+
+body {
+  font-family: $font;
+}
+
+h1 {
+  font-family: $fontTitle;
+  font-size: $font-size-xxl;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: $fontTitle;
+  font-size: $font-size-xl;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: $fontTitle;
+  font-size: $font-size-lg;
+  font-weight: normal;
+  text-align: center;
+}
+
+p, a, li, button, label, input, textarea {
+  font-size: $font-size-base;
+}

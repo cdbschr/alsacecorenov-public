@@ -1,0 +1,22 @@
+@use '../utils/mixins' as m;
+
+.button {
+  padding: 15px 20px;
+  color: var(--color-light);
+  background-color: var(--color-primary);
+  border-radius: 8px;
+
+  &:hover {
+    background-color: var(--color-secondary);
+  }
+}
+
+.button__header {
+  @extend .button;
+}
+
+.button__form {
+  @include m.flex-container-center;
+  @extend .button;
+  width: 40%;
+}
